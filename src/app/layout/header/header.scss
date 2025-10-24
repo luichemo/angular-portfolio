@@ -1,0 +1,41 @@
+.header-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.toolbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+.desktop-nav {
+  display: none;
+  gap: 8px;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.mobile-menu {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.1);
+}

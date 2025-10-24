@@ -1,0 +1,20 @@
+<div class="home-container">
+  <div class="container hero-section">
+    <h1 class="title">Angular Developer</h1>
+    
+    <p class="subtitle">
+      Building modern, scalable web applications with cutting-edge technologies
+    </p>
+
+    <mat-chip-set class="skills-chips">
+      @for (skill of skills; track skill) {
+        <mat-chip>{{ skill }}</mat-chip>
+      }
+    </mat-chip-set>
+
+    <div class="actions">
+      <a mat-raised-button color="primary" routerLink="/projects">View Projects</a>
+      <a mat-stroked-button color="primary" routerLink="/contact">Get in Touch</a>
+    </div>
+  </div>
+</div>
