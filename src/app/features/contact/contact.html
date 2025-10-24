@@ -1,1 +1,93 @@
-<p>contact works!</p>
+<div class="contact-container">
+  <div class="container">
+    <div class="contact-header">
+      <h1>Get In Touch</h1>
+      <p class="subtitle">Let's work together on your next project</p>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-info-section">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Contact Information</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="info-list">
+              @for (info of contactInfo; track info.label) {
+                <div class="info-item">
+                  <mat-icon>{{ info.icon }}</mat-icon>
+                  <div>
+                    <h4>{{ info.label }}</h4>
+                    <p>{{ info.value }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="contact-form-section">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Send a Message</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Your name">
+                <mat-icon matPrefix>person</mat-icon>
+                @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+                  <mat-error>{{ getErrorMessage('name') }}</mat-error>
+                }
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="your.email@example.com">
+                <mat-icon matPrefix>email</mat-icon>
+                @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                  <mat-error>{{ getErrorMessage('email') }}</mat-error>
+                }
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Subject</mat-label>
+                <input matInput formControlName="subject" placeholder="Message subject">
+                <mat-icon matPrefix>subject</mat-icon>
+                @if (contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) {
+                  <mat-error>{{ getErrorMessage('subject') }}</mat-error>
+                }
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Message</mat-label>
+                <textarea 
+                  matInput 
+                  formControlName="message" 
+                  rows="6"
+                  placeholder="Your message here...">
+                </textarea>
+                <!-- <mat-icon matPrefix>message</mat-icon> -->
+                @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                  <mat-error>{{ getErrorMessage('message') }}</mat-error>
+                }
+              </mat-form-field>
+
+              <button 
+                mat-raised-button 
+                color="primary" 
+                type="submit"
+                [disabled]="contactForm.invalid"
+                class="submit-button">
+                <mat-icon>send</mat-icon>
+                Send Message
+              </button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

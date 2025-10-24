@@ -1,1 +1,53 @@
-<p>about works!</p>
+<div class="about-container">
+  <div class="container">
+    <div class="about-header">
+      <h1>About Me</h1>
+      <p class="subtitle">Passionate about building exceptional digital experiences</p>
+    </div>
+
+    <div class="about-content">
+      <mat-card class="about-card">
+        <mat-card-content>
+          <h2>Hello! I'm an Angular Developer</h2>
+          <p>
+            With over 5 years of experience in web development, I specialize in building modern, 
+            scalable, and performant applications using Angular and the latest web technologies.
+          </p>
+          <p>
+            I'm passionate about clean code, best practices, and creating seamless user experiences. 
+            My expertise includes Angular, TypeScript, RxJS, NgRx, and modern CSS frameworks.
+          </p>
+          <p>
+            I believe in continuous learning and staying up-to-date with the latest industry trends 
+            and technologies to deliver the best solutions for my clients and projects.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="achievements-grid">
+        @for (achievement of achievements; track achievement.title) {
+          <mat-card class="achievement-card">
+            <mat-card-content>
+              <mat-icon class="achievement-icon">{{ achievement.icon }}</mat-icon>
+              <h3>{{ achievement.title }}</h3>
+              <p>{{ achievement.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+
+      <mat-card class="interests-card">
+        <mat-card-header>
+          <mat-card-title>Interests & Passions</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-chip-set>
+            @for (interest of interests; track interest) {
+              <mat-chip>{{ interest }}</mat-chip>
+            }
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

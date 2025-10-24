@@ -1,1 +1,37 @@
-<p>projects works!</p>
+<div class="projects-container">
+  <div class="container">
+    <div class="projects-header" @fadeIn>
+      <h1>Projects</h1>
+      <p class="subtitle">Some of my recent work</p>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.title) {
+        <mat-card class="project-card" @scaleIn>
+          <img mat-card-image [src]="project.image" [alt]="project.title">
+          <mat-card-header>
+            <mat-card-title>{{ project.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="project-description">{{ project.description }}</p>
+            <mat-chip-set class="tech-chips">
+              @for (tech of project.technologies; track tech) {
+                <mat-chip>{{ tech }}</mat-chip>
+              }
+            </mat-chip-set>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button color="primary" [href]="project.github" target="_blank">
+              <mat-icon>code</mat-icon>
+              GitHub
+            </a>
+            <a mat-button color="accent" [href]="project.demo" target="_blank">
+              <mat-icon>launch</mat-icon>
+              Live Demo
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  </div>
+</div>

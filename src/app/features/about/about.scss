@@ -1,0 +1,119 @@
+.about-container {
+  min-height: 100vh;
+  padding: 120px 24px 48px;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 48px;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    background: linear-gradient(45deg, #1976d2, #ff6f00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: #616161;
+
+    .dark-theme & {
+      color: #bdbdbd;
+    }
+  }
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-card {
+  h2 {
+    margin-bottom: 16px;
+    color: #1976d2;
+
+    .dark-theme & {
+      color: #64b5f6;
+    }
+  }
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    color: #424242;
+
+    .dark-theme & {
+      color: #e0e0e0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.achievement-card {
+  text-align: center;
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .achievement-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #ff6f00;
+
+    .dark-theme & {
+      color: #ffb74d;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #1976d2;
+
+    .dark-theme & {
+      color: #64b5f6;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: #616161;
+
+    .dark-theme & {
+      color: #bdbdbd;
+    }
+  }
+}
+
+.interests-card {
+  mat-chip-set {
+    justify-content: center;
+  }
+}

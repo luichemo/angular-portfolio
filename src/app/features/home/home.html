@@ -1,18 +1,18 @@
 <div class="home-container">
-  <div class="container hero-section">
-    <h1 class="title">Angular Developer</h1>
+  <div class="container hero-section" @fadeIn>
+    <h1 class="title" @slideUp>Angular Developer</h1>
     
-    <p class="subtitle">
+    <p class="subtitle" @slideUp>
       Building modern, scalable web applications with cutting-edge technologies
     </p>
 
-    <mat-chip-set class="skills-chips">
+    <mat-chip-set class="skills-chips" @slideUp>
       @for (skill of skills; track skill) {
         <mat-chip>{{ skill }}</mat-chip>
       }
     </mat-chip-set>
 
-    <div class="actions">
+    <div class="actions" @slideUp>
       <a mat-raised-button color="primary" routerLink="/projects">View Projects</a>
       <a mat-stroked-button color="primary" routerLink="/contact">Get in Touch</a>
     </div>

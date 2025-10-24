@@ -6,6 +6,10 @@
         <p class="footer-text">
           Building modern web applications with Angular and cutting-edge technologies.
         </p>
+        <div class="footer-badges">
+          <span class="badge">Angular</span>
+          <span class="badge">Material Design</span>
+        </div>
       </div>
 
       <div class="footer-section">
@@ -13,7 +17,10 @@
         <ul class="footer-links">
           @for (link of quickLinks; track link.path) {
             <li>
-              <a [href]="link.path" class="footer-link">{{ link.label }}</a>
+              <a [href]="link.path" class="footer-link">
+                <mat-icon class="link-icon">arrow_forward</mat-icon>
+                {{ link.label }}
+              </a>
             </li>
           }
         </ul>
@@ -28,16 +35,32 @@
               target="_blank" 
               rel="noopener noreferrer"
               mat-icon-button
+              class="social-link"
               [attr.aria-label]="link.name">
               <mat-icon>{{ link.icon }}</mat-icon>
             </a>
           }
         </div>
+        <div class="newsletter">
+          <p class="newsletter-text">Stay updated with my latest projects</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com" class="newsletter-input" />
+            <button mat-icon-button class="newsletter-button">
+              <mat-icon>send</mat-icon>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {{ currentYear }} Portfolio. Built with Angular & Material Design.</p>
+      <p class="copyright">&copy; {{ currentYear }} Portfolio. Built with Angular & Material Design.</p>
+      <div class="footer-meta">
+        <a href="#" class="meta-link">Privacy Policy</a>
+        <span class="divider">•</span>
+        <a href="#" class="meta-link">Terms of Service</a>
+      </div>
     </div>
   </div>
+  <div class="footer-decoration"></div>
 </footer>

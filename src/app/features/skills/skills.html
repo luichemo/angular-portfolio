@@ -1,1 +1,36 @@
-<p>skills works!</p>
+<div class="skills-container">
+  <div class="container">
+    <div class="skills-header">
+      <h1>Skills & Expertise</h1>
+      <p class="subtitle">Technologies and tools I work with</p>
+    </div>
+
+    <div class="skills-grid">
+      @for (category of skillCategories; track category.title) {
+        <mat-card class="skill-category-card">
+          <mat-card-header>
+            <mat-icon class="category-icon">{{ category.icon }}</mat-icon>
+            <mat-card-title>{{ category.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="skills-list">
+              @for (skill of category.skills; track skill.name) {
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-percentage">{{ skill.level }}%</span>
+                  </div>
+                  <mat-progress-bar 
+                    mode="determinate" 
+                    [value]="skill.level"
+                    color="primary">
+                  </mat-progress-bar>
+                </div>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  </div>
+</div>

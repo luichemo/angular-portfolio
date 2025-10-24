@@ -1,35 +1,63 @@
-<mat-toolbar color="primary" class="header-toolbar">
+<mat-toolbar class="header-toolbar">
   <div class="container toolbar-content">
-    <a routerLink="/" class="logo">Portfolio</a>
+    <a routerLink="/" class="logo">
+      <span class="logo-icon">
+        <mat-icon>code</mat-icon>
+      </span>
+      <span class="logo-text">
+        <span class="logo-primary">Port</span><span class="logo-accent">folio</span>
+      </span>
+    </a>
     
     <nav class="desktop-nav">
       @for (item of navItems; track item.path) {
         <a 
-          mat-button 
+          class="nav-link"
           [routerLink]="item.path" 
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{exact: item.path === '/'}">
-          {{ item.label }}
+          <span class="nav-link-text">{{ item.label }}</span>
+          <span class="nav-link-indicator"></span>
         </a>
       }
       
-      <button mat-icon-button (click)="toggleTheme()">
-        <mat-icon>{{ theme.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      <div class="nav-divider"></div>
+      
+      <button 
+        mat-icon-button 
+        (click)="toggleTheme()" 
+        class="theme-toggle"
+        [attr.aria-label]="'Toggle ' + (theme.isDarkMode() ? 'light' : 'dark') + ' mode'">
+        <mat-icon class="theme-icon">{{ theme.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
       </button>
     </nav>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-menu">
+    <button 
+      mat-icon-button 
+      [matMenuTriggerFor]="menu" 
+      class="mobile-menu"
+      aria-label="Open menu">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
+  <div class="toolbar-shadow"></div>
 </mat-toolbar>
 
-<mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" class="mobile-menu-panel">
   @for (item of navItems; track item.path) {
-    <a mat-menu-item [routerLink]="item.path">{{ item.label }}</a>
+    <a 
+      mat-menu-item 
+      [routerLink]="item.path"
+      routerLinkActive="active-mobile-link"
+      [routerLinkActiveOptions]="{exact: item.path === '/'}"
+      class="mobile-nav-item">
+      <mat-icon class="mobile-nav-icon">{{ getMobileIcon(item.label) }}</mat-icon>
+      <span>{{ item.label }}</span>
+    </a>
   }
-  <button mat-menu-item (click)="toggleTheme()">
-    <mat-icon>{{ theme.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
-    <span>Toggle Theme</span>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="toggleTheme()" class="mobile-nav-item">
+    <mat-icon class="mobile-nav-icon">{{ theme.isDarkMode() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    <span>{{ theme.isDarkMode() ? 'Light Mode' : 'Dark Mode' }}</span>
   </button>
 </mat-menu>
