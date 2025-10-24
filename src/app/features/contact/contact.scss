@@ -1,6 +1,5 @@
 .contact-container {
-  min-height: 100vh;
-  padding: 120px 24px 80px;
+  padding: 120px 12px 80px;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   position: relative;
   overflow: hidden;
@@ -36,7 +35,7 @@
 
 .contact-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
   position: relative;
   z-index: 1;
 }
@@ -44,13 +43,12 @@
 .contact-header h1 {
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   background: linear-gradient(135deg, #1976d2 0%, #2196f3 50%, #ff6f00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -1px;
-  animation: fadeInUp 0.6s ease-out;
 }
 
 @keyframes fadeInUp {
@@ -74,7 +72,6 @@
   font-size: 1.25rem;
   color: #546e7a;
   font-weight: 400;
-  animation: fadeInUp 0.6s ease-out 0.2s backwards;
 }
 
 :host-context(.dark-theme) .contact-header .subtitle {
@@ -122,7 +119,7 @@ mat-card:hover {
 }
 
 mat-card-header {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 mat-card-title {
@@ -136,9 +133,8 @@ mat-card-title {
   color: #e3f2fd;
 }
 
-// Contact Info Section
 .contact-info-section mat-card {
-  padding: 32px !important;
+  padding: 10px !important;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95)) !important;
 }
 
@@ -149,14 +145,14 @@ mat-card-title {
 .info-list {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 10px;
 }
 
 .info-item {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 16px;
   transition: all 0.3s ease;
   cursor: default;
@@ -182,7 +178,6 @@ mat-card-title {
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  // padding: 12px;
   background: linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(33, 150, 243, 0.15));
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -231,7 +226,7 @@ mat-card-title {
 .contact-form-section form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0px;
 }
 
 .contact-form-section mat-form-field {
@@ -294,8 +289,8 @@ mat-card-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 40px !important;
+  gap: 5px;
+  padding: 8px 20px !important;
   font-size: 1.05rem !important;
   font-weight: 600 !important;
   border-radius: 12px !important;

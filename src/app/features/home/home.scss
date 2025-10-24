@@ -6,7 +6,7 @@
   padding-top: 64px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(135deg, #1976d2 0%, #2196f3 50%, #ff6f00 100%);
   
   &::before {
     content: '';
@@ -33,7 +33,7 @@
 }
 
 :host-context(.dark-theme) .home-container {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #0a0f1f 0%, #1a1a2e 50%, #1e3a5f 100%);
 }
 
 .hero-section {
@@ -179,7 +179,7 @@
   // Primary button (View Projects)
   a[mat-raised-button] {
     background: white !important;
-    color: #667eea !important;
+    color: #1976d2 !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
     
     &:hover {
@@ -216,7 +216,7 @@
 :host-context(.dark-theme) .actions {
   a[mat-raised-button] {
     background: rgba(255, 255, 255, 0.95) !important;
-    color: #1a1a2e !important;
+    color: #1976d2 !important;
     
     &:hover {
       background: white !important;
