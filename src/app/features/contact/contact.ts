@@ -7,7 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { fadeIn, slideLeft, slideRight } from '../../shared/animations/animations';
+import { Email } from '../../core/services/email';
 
 interface ContactInfo {
   icon: string;
@@ -34,7 +36,8 @@ interface SocialLink {
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
@@ -49,22 +52,22 @@ export class Contact implements OnInit {
     {
       icon: 'email',
       label: 'Email',
-      value: 'your.email@example.com',
-      action: 'mailto:your.email@example.com',
+      value: 'luka.chemia001@gmail.com',
+      action: 'mailto:luka.chemia001@gmail.com',
       actionLabel: 'Send Email'
     },
     {
       icon: 'phone',
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      action: 'tel:+15551234567',
+      value: '(+995) 551 80 00 37',
+      action: 'tel:+995551800037',
       actionLabel: 'Call Now'
     },
     {
       icon: 'location_on',
       label: 'Location',
-      value: 'San Francisco, CA',
-      action: 'https://maps.google.com/?q=San+Francisco,CA',
+      value: 'Georgia, Tbilisi',
+      action: 'https://maps.google.com/?q=Tbilisi,Georgia',
       actionLabel: 'View on Map'
     }
   ];
@@ -78,7 +81,8 @@ export class Contact implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private emailService: Email
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -88,10 +92,10 @@ export class Contact implements OnInit {
     });
   }
 
-
   ngOnInit(): void {
     this.scrollToTop();
   }
+
   private scrollToTop(): void {
     window.scrollTo({
       top: 0,
@@ -99,23 +103,53 @@ export class Contact implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
 
-      setTimeout(() => {
-        console.log('Form submitted:', this.contactForm.value);
+      const formData = this.contactForm.value;
 
-        this.snackBar.open('✓ Message sent successfully! I\'ll get back to you soon.', 'Close', {
-          duration: 5000,
-          horizontalPosition: 'center',
-          verticalPosition: 'top',
-          panelClass: ['success-snackbar']
+      try {
+        const result = await this.emailService.sendEmail({
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Luka'
         });
 
-        this.contactForm.reset();
+        if (result.success) {
+          this.snackBar.open('✓ Message sent successfully! I\'ll get back to you soon.', 'Close', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['success-snackbar']
+          });
+
+          this.contactForm.reset();
+          Object.keys(this.contactForm.controls).forEach(key => {
+            this.contactForm.get(key)?.setErrors(null);
+            this.contactForm.get(key)?.markAsUntouched();
+          });
+        } else {
+          this.snackBar.open('✗ Failed to send message. Please try again or email me directly.', 'Close', {
+            duration: 7000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar']
+          });
+        }
+      } catch (error) {
+        console.error('Error sending email:', error);
+        this.snackBar.open('✗ An error occurred. Please try again later.', 'Close', {
+          duration: 7000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['error-snackbar']
+        });
+      } finally {
         this.isSubmitting = false;
-      }, 2000);
+      }
     }
   }
 

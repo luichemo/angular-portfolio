@@ -20,15 +20,15 @@ export class Projects implements OnInit{
       title: 'E-Commerce Platform',
       description: 'Full-featured e-commerce platform built with Angular, NgRx for state management, and Material Design.',
       technologies: ['Angular', 'NgRx', 'Material', 'TypeScript'],
-      image: 'https://via.placeholder.com/400x250/1976d2/ffffff?text=E-Commerce',
-      github: 'https://github.com/yourusername/project1',
-      demo: 'https://demo.example.com'
+      image: 'alcotime.png',
+      github: 'https://github.com/luichemo/e-alcotime',
+      demo: 'https://alcohol-store-alcotime.web.app/home'
     },
     {
       title: 'Task Management App',
       description: 'Collaborative task management application with real-time updates and drag-and-drop functionality.',
       technologies: ['Angular', 'RxJS', 'Firebase', 'Angular CDK'],
-      image: 'https://via.placeholder.com/400x250/ff6f00/ffffff?text=Task+Manager',
+      image: 'alcotime.png',
       github: 'https://github.com/yourusername/project2',
       demo: 'https://demo.example.com'
     },
@@ -36,7 +36,7 @@ export class Projects implements OnInit{
       title: 'Analytics Dashboard',
       description: 'Advanced analytics dashboard with interactive charts and real-time data visualization.',
       technologies: ['Angular', 'Chart.js', 'REST API', 'Material'],
-      image: 'https://via.placeholder.com/400x250/9c27b0/ffffff?text=Analytics',
+      image: 'alcotime.png',
       github: 'https://github.com/yourusername/project3',
       demo: 'https://demo.example.com'
     },
@@ -44,7 +44,7 @@ export class Projects implements OnInit{
       title: 'Social Media App',
       description: 'Social networking platform with user profiles, posts, comments, and real-time notifications.',
       technologies: ['Angular', 'NgRx', 'WebSocket', 'Progressive Web App'],
-      image: 'https://via.placeholder.com/400x250/00bcd4/ffffff?text=Social+App',
+      image: 'alcotime.png',
       github: 'https://github.com/yourusername/project4',
       demo: 'https://demo.example.com'
     }

@@ -103,22 +103,11 @@
     font-size: 1.1rem;
   }
 }
-
-:host-context(.dark-theme) .subtitle {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.skills-chips {
-  justify-content: center;
-  margin-bottom: 48px;
-  gap: 12px;
-  flex-wrap: wrap;
-  
-  ::ng-deep mat-chip {
+::ng-deep mat-chip {
     font-weight: 500;
     background: rgba(255, 255, 255, 0.2) !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    border: 2px solid white;
     backdrop-filter: blur(10px);
     padding: 8px 20px !important;
     font-size: 0.95rem;
@@ -131,6 +120,18 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
   }
+
+:host-context(.dark-theme) .subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.skills-chips {
+  justify-content: center;
+  margin-bottom: 48px;
+  gap: 12px;
+  flex-wrap: wrap;
+  
+  
   
   @media (max-width: 768px) {
     gap: 8px;
@@ -145,7 +146,7 @@
 :host-context(.dark-theme) .skills-chips {
   ::ng-deep mat-chip {
     background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     
     &:hover {
       background: rgba(255, 255, 255, 0.2) !important;

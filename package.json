@@ -31,6 +31,7 @@
     "@angular/material": "^20.2.10",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@emailjs/browser": "^4.4.1",
     "bootstrap-icons": "^1.13.1",
     "lucide-angular": "^0.547.0",
     "rxjs": "~7.8.0",
