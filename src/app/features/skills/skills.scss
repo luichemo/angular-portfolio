@@ -1,36 +1,102 @@
 .skills-container {
   min-height: 100vh;
-  padding: 120px 24px 48px;
+  padding: 120px 24px 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(25, 118, 210, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 15s ease-in-out infinite;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 111, 0, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 20s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -30px);
+  }
+}
+
+:host-context(.dark-theme) .skills-container {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  
+  &::before {
+    background: radial-gradient(circle, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+  }
+  
+  &::after {
+    background: radial-gradient(circle, rgba(255, 143, 0, 0.08) 0%, transparent 70%);
+  }
 }
 
 .skills-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .skills-header h1 {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 3.5rem;
+  font-weight: 700;
   margin-bottom: 16px;
-  background: linear-gradient(45deg, #1976d2, #ff6f00);
+  background: linear-gradient(135deg, #1976d2 0%, #2196f3 50%, #ff6f00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: -1px;
 }
 
 @media (max-width: 768px) {
   .skills-header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .skills-header .subtitle {
   font-size: 1.25rem;
-  color: #616161;
+  color: #546e7a;
+  font-weight: 400;
 }
 
 :host-context(.dark-theme) .skills-header .subtitle {
-  color: #bdbdbd;
+  color: #b0bec5;
 }
 
 .skills-grid {
@@ -39,6 +105,45 @@
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-category-card {
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+  overflow: hidden;
+  padding: 32px !important;
+  animation: fadeInUp 0.8s ease-out backwards;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  :host-context(.dark-theme) & {
+    background: rgba(30, 30, 46, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    
+    &:hover {
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6) !important;
+    }
+  }
+}
+
+// Staggered animation
+.skills-grid > * {
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+  &:nth-child(5) { animation-delay: 0.5s; }
+  &:nth-child(6) { animation-delay: 0.6s; }
 }
 
 .skill-category-card mat-card-header {
@@ -46,23 +151,42 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
+  padding: 0 !important;
 }
 
 .category-icon {
-  font-size: 32px;
-  width: 32px;
-  height: 32px;
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
   color: #ff6f00;
+  background: linear-gradient(135deg, rgba(255, 111, 0, 0.1), rgba(255, 111, 0, 0.2));
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.skill-category-card:hover .category-icon {
+  transform: scale(1.05) rotate(3deg);
 }
 
 :host-context(.dark-theme) .category-icon {
   color: #ffb74d;
+  background: linear-gradient(135deg, rgba(255, 183, 77, 0.15), rgba(255, 183, 77, 0.25));
 }
 
 .skill-category-card mat-card-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
   margin: 0;
+  color: #1976d2;
+  letter-spacing: -0.5px;
+}
+
+:host-context(.dark-theme) .skill-category-card mat-card-title {
+  color: #64b5f6;
+}
+
+.skill-category-card mat-card-content {
+  padding: 0 !important;
 }
 
 .skills-list {
@@ -85,11 +209,12 @@
 
 .skill-name {
   font-weight: 500;
-  color: #212121;
+  font-size: 1.05rem;
+  color: #455a64;
 }
 
 :host-context(.dark-theme) .skill-name {
-  color: #e0e0e0;
+  color: #cfd8dc;
 }
 
 .skill-percentage {
@@ -104,4 +229,36 @@
 mat-progress-bar {
   height: 8px;
   border-radius: 4px;
+  
+  ::ng-deep .mat-progress-bar-fill::after {
+    background: linear-gradient(90deg, #1976d2, #2196f3);
+  }
+  
+  :host-context(.dark-theme) & ::ng-deep .mat-progress-bar-fill::after {
+    background: linear-gradient(90deg, #64b5f6, #90caf9);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    padding: 100px 20px 60px;
+  }
+  
+  .skill-category-card {
+    padding: 24px 20px !important;
+  }
+  
+  .category-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .skill-category-card mat-card-title {
+    font-size: 1.5rem;
+  }
+  
+  .skill-name {
+    font-size: 1rem;
+  }
 }

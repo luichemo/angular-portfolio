@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -40,28 +40,29 @@ interface SocialLink {
   styleUrl: './contact.scss',
   animations: [fadeIn, slideLeft, slideRight]
 })
-export class Contact {
+export class Contact implements OnInit {
+
   contactForm: FormGroup;
   isSubmitting = false;
 
   contactInfo: ContactInfo[] = [
-    { 
-      icon: 'email', 
-      label: 'Email', 
+    {
+      icon: 'email',
+      label: 'Email',
       value: 'your.email@example.com',
       action: 'mailto:your.email@example.com',
       actionLabel: 'Send Email'
     },
-    { 
-      icon: 'phone', 
-      label: 'Phone', 
+    {
+      icon: 'phone',
+      label: 'Phone',
       value: '+1 (555) 123-4567',
       action: 'tel:+15551234567',
       actionLabel: 'Call Now'
     },
-    { 
-      icon: 'location_on', 
-      label: 'Location', 
+    {
+      icon: 'location_on',
+      label: 'Location',
       value: 'San Francisco, CA',
       action: 'https://maps.google.com/?q=San+Francisco,CA',
       actionLabel: 'View on Map'
@@ -87,21 +88,31 @@ export class Contact {
     });
   }
 
+
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   onSubmit(): void {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
-      
-      // Simulate API call
+
       setTimeout(() => {
         console.log('Form submitted:', this.contactForm.value);
-        
+
         this.snackBar.open('✓ Message sent successfully! I\'ll get back to you soon.', 'Close', {
           duration: 5000,
           horizontalPosition: 'center',
           verticalPosition: 'top',
           panelClass: ['success-snackbar']
         });
-        
+
         this.contactForm.reset();
         this.isSubmitting = false;
       }, 2000);
@@ -118,25 +129,25 @@ export class Contact {
 
   getErrorMessage(field: string): string {
     const control = this.contactForm.get(field);
-    
+
     if (control?.hasError('required')) {
       return 'This field is required';
     }
-    
+
     if (control?.hasError('email')) {
       return 'Please enter a valid email address';
     }
-    
+
     if (control?.hasError('minlength')) {
       const minLength = control.errors?.['minlength'].requiredLength;
       return `Minimum ${minLength} characters required`;
     }
-    
+
     if (control?.hasError('maxlength')) {
       const maxLength = control.errors?.['maxlength'].requiredLength;
       return `Maximum ${maxLength} characters allowed`;
     }
-    
+
     return '';
   }
 }

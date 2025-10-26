@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })
-export class Skills {
+export class Skills implements OnInit{
   skillCategories = [
     {
       title: 'Frontend',
@@ -54,4 +54,14 @@ export class Skills {
       ]
     }
   ];
+
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }

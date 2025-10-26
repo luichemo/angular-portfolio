@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,7 +14,7 @@ import { fadeIn, scaleIn } from '../../shared/animations/animations';
   styleUrl: './projects.scss',
   animations: [fadeIn, scaleIn]
 })
-export class Projects {
+export class Projects implements OnInit{
   projects = [
     {
       title: 'E-Commerce Platform',
@@ -49,4 +49,14 @@ export class Projects {
       demo: 'https://demo.example.com'
     }
   ];
+
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }

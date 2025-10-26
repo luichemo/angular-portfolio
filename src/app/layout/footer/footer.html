@@ -18,7 +18,7 @@
           @for (link of quickLinks; track link.path) {
             <li>
               <a [href]="link.path" class="footer-link">
-                <mat-icon class="link-icon">arrow_forward</mat-icon>
+                <i [class]="link.icon + ' link-icon'"></i>
                 {{ link.label }}
               </a>
             </li>
@@ -37,16 +37,16 @@
               mat-icon-button
               class="social-link"
               [attr.aria-label]="link.name">
-              <mat-icon>{{ link.icon }}</mat-icon>
+              <i [class]="link.icon"></i>
             </a>
           }
         </div>
         <div class="newsletter">
-          <p class="newsletter-text">Stay updated with my latest projects</p>
+          <p class="newsletter-text">Have any project in mind?&nbsp; Let's crete it. </p>
           <div class="newsletter-form">
             <input type="email" placeholder="your@email.com" class="newsletter-input" />
             <button mat-icon-button class="newsletter-button">
-              <mat-icon>send</mat-icon>
+              <i class="bi-send"></i>
             </button>
           </div>
         </div>

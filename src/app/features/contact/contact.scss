@@ -227,7 +227,10 @@ mat-card-title {
 .contact-form-section form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+}
+.mdc-notched-outline__notch{
+  border-left: none !important;
 }
 
 .contact-form-section mat-form-field {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './experience.html',
   styleUrl: './experience.scss'
 })
-export class Experience {
+export class Experience implements OnInit{
   experiences = [
     {
       company: 'Tech Solutions Inc.',
@@ -49,4 +49,13 @@ export class Experience {
       ]
     }
   ];
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }

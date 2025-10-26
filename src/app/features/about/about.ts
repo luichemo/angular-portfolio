@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -11,7 +11,16 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })
-export class About {
+export class About implements OnInit{
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   interests = ['Web Development', 'UI/UX Design', 'Open Source', 'Clean Code'];
   
   achievements = [

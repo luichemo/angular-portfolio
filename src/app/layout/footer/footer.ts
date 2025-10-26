@@ -14,16 +14,16 @@ export class Footer {
   currentYear = new Date().getFullYear();
 
   socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/yourusername', icon: 'code' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'work' },
-    { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: 'alternate_email' },
-    { name: 'Email', url: 'mailto:your.email@example.com', icon: 'email' }
+    { name: 'GitHub', url: 'https://github.com/luichemo', icon: 'bi-github' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/luka-chemia-a0a339236/', icon: 'bi-linkedin' },
+    { name: 'facebook', url: 'https://www.facebook.com/lukaa2002/', icon: 'bi-facebook' },
+    { name: 'Email', url: 'mailto:luka.chemia001@gmail.com', icon: 'bi-envelope' }
   ];
 
   quickLinks = [
-    { label: 'About', path: '/about' },
-    { label: 'Skills', path: '/skills' },
-    { label: 'Projects', path: '/projects' },
-    { label: 'Contact', path: '/contact' }
+    { label: 'About', path: '/about', icon: 'bi-person' },
+    { label: 'Skills', path: '/skills', icon: 'bi-tools' },
+    { label: 'Projects', path: '/projects', icon: 'bi-folder' },
+    { label: 'Contact', path: '/contact', icon: 'bi-chat-dots' }
   ];
 }
