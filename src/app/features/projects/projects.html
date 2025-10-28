@@ -7,30 +7,39 @@
 
     <div class="projects-grid">
       @for (project of projects; track project.title) {
-        <mat-card class="project-card" @scaleIn>
-          <img mat-card-image [src]="project.image" [alt]="project.title">
-          <mat-card-header>
-            <mat-card-title>{{ project.title }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="project-description">{{ project.description }}</p>
-            <mat-chip-set class="tech-chips">
-              @for (tech of project.technologies; track tech) {
-                <mat-chip>{{ tech }}</mat-chip>
-              }
-            </mat-chip-set>
-          </mat-card-content>
-          <mat-card-actions>
-            <a mat-button color="primary" [href]="project.github" target="_blank">
-              <mat-icon>code</mat-icon>
-              GitHub
-            </a>
-            <a mat-button color="accent" [href]="project.demo" target="_blank">
-              <mat-icon>launch</mat-icon>
-              Live Demo
-            </a>
-          </mat-card-actions>
-        </mat-card>
+      <mat-card class="project-card" @scaleIn>
+        <img mat-card-image [src]="project.image" [alt]="project.title">
+        <mat-card-header>
+          <mat-card-title>{{ project.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p class="project-description">
+            {{ isExpanded(project) ? project.description : (project.description | slice:0:150) +
+            (project.description.length > 150 ? '...' : '') }}
+            &nbsp;
+            <button mat-button color="primary" class="read-more-btn" (click)="toggleReadMore(project)">
+            {{ isExpanded(project) ? 'Read less' : 'Read more' }}
+          </button>
+          </p>
+          
+          
+          <mat-chip-set class="tech-chips">
+            @for (tech of project.technologies; track tech) {
+            <mat-chip>{{ tech }}</mat-chip>
+            }
+          </mat-chip-set>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" [href]="project.github" target="_blank">
+            <mat-icon>code</mat-icon>
+            GitHub
+          </a>
+          <a mat-button color="accent" [href]="project.demo" target="_blank">
+            <mat-icon>launch</mat-icon>
+            Live Demo
+          </a>
+        </mat-card-actions>
+      </mat-card>
       }
     </div>
   </div>
