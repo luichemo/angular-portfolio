@@ -49,7 +49,7 @@ export class Projects implements OnInit {
       ],
       image: 'weatherApp.png',
       github: 'https://github.com/luichemo/weather-forecast-planner',
-      demo: 'https://weather-forecast-planner.netlify.app'
+      demo: 'https://weather-app-c9977.web.app/'
     },
     {
       title: 'Analytics Dashboard',
