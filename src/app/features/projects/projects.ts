@@ -32,7 +32,7 @@ export class Projects implements OnInit {
       ],
       image: 'alcotime.png',
       github: 'https://github.com/yourusername/alcotime-wine-store',
-      demo: 'https://alcotime-wine-store.web.app'
+      demo: 'https://alcohol-store-alcotime.web.app'
     },
     {
       title: 'Weather Forecast Planner',
