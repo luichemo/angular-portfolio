@@ -52,20 +52,16 @@ export class Projects implements OnInit {
       demo: 'https://weather-app-c9977.web.app/'
     },
     {
-      title: 'Analytics Dashboard',
-      description: 'Advanced analytics dashboard with interactive charts and real-time data visualization.',
-      technologies: ['Angular', 'Chart.js', 'REST API', 'Material'],
-      image: 'alcotime.png',
-      github: 'https://github.com/yourusername/project3',
-      demo: 'https://demo.example.com'
-    },
-    {
-      title: 'Social Media App',
-      description: 'Social networking platform with user profiles, posts, comments, and real-time notifications.',
-      technologies: ['Angular', 'NgRx', 'WebSocket', 'Progressive Web App'],
-      image: 'alcotime.png',
-      github: 'https://github.com/yourusername/project4',
-      demo: 'https://demo.example.com'
+      title: 'Flowers',
+      description: 'A creative front-end animation project that visually simulates blooming flowers using CSS and JavaScript. Focused on smooth transitions, timing, and visual appeal to demonstrate animation techniques and browser rendering performance.',
+      technologies: [
+        'HTML',
+        'SCSS',
+        'JavasScript',
+        'SCSS'],
+      image: 'flower.png',
+      github: 'https://github.com/luichemo/flower',
+      demo: 'https://luichemo.github.io/webportfolio/flowerIndex.html'
     }
   ];
 

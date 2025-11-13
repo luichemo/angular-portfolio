@@ -17,11 +17,30 @@ export class Home implements OnInit {
   ngOnInit(): void {
     this.scrollToTop();
   }
+
   private scrollToTop(): void {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   }
-  skills = ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Material Design', 'REST APIs'];
+
+  skills = [
+    'Angular',
+    'TypeScript',
+    'JavaScript',
+    'RxJS',
+    'NgRx',
+    'SCSS / CSS / HTML',
+    'Angular Material',
+    'Tailwind',
+    'Bootstrap',
+    'RESTful API',
+    'Git / GitHub',
+    'CI/CD',
+    'Keycloak',
+    'Figma (UI/UX)',
+    'Agile',
+    'SCRUM',
+  ];
 }

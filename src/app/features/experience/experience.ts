@@ -10,48 +10,57 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './experience.html',
   styleUrl: './experience.scss'
 })
-export class Experience implements OnInit{
+export class Experience implements OnInit {
   experiences = [
     {
-      company: 'Tech Solutions Inc.',
-      position: 'Senior Angular Developer',
+      company: 'Aldagi',
+      position: 'Front-End Angular Developer',
       period: '2022 - Present',
-      description: 'Leading the development of enterprise-level web applications using Angular, NgRx, and modern web technologies.',
+      description: `Worked on 10+ admin-side and 3 client-side applications for Aldagi and its subsidiaries, 
+      building data-driven, scalable, and user-friendly interfaces with Angular.`,
       responsibilities: [
-        'Architecting and developing scalable Angular applications',
-        'Mentoring junior developers and code reviews',
-        'Implementing state management with NgRx',
-        'Optimizing application performance'
+        'Developed multiple admin-side modules for Greenway, including full CRUD for vehicle data',
+        'Built a dynamic vehicle insurance calculator with editable data tables',
+        'Designed and delivered a standalone Angular app for real estate insurance calculations',
+        'Led frontend development of Aldagi’s commission calculator',
+        'Created responsive and accessible UIs using Angular Material, Bootstrap, and Tailwind',
+        'Implemented a reusable refresh token service for secure authentication',
+        'Customized Keycloak themes to match Aldagi’s branding',
+        'Collaborated with backend, UI/UX, and QA teams using Agile (Scrum/Kanban)'
+      ],
+      technologies: [
+        'Angular', 'TypeScript', 'RxJS', 'RESTful API', 'Git', 
+        'CI/CD', 'HTML', 'CSS', 'SCSS', 'Angular Material', 'Keycloak'
+      ],
+      clientProjects: [
+        'https://travel.aldagi.ge/',
+        'https://onlinemezobloba.aldagi.ge/',
+        'https://onlinetravel.aldagi.ge/'
       ]
     },
     {
-      company: 'Digital Innovations Ltd.',
-      position: 'Angular Developer',
-      period: '2020 - 2022',
-      description: 'Developed multiple client-facing applications and internal tools using Angular and Material Design.',
+      company: 'NoneFace (Startup)',
+      position: 'Front-End Angular Developer | UX/UI Designer',
+      period: '2023 - 2024',
+      description: `Developed the entire application independently using Angular and designed 
+      the full UX/UI experience in Figma, focusing on usability and consistency.`,
       responsibilities: [
-        'Building responsive web applications',
-        'Integrating REST APIs and WebSocket connections',
-        'Writing unit and e2e tests',
-        'Collaborating with UX/UI designers'
-      ]
-    },
-    {
-      company: 'StartUp Co.',
-      position: 'Frontend Developer',
-      period: '2018 - 2020',
-      description: 'Worked on various projects using modern JavaScript frameworks and technologies.',
-      responsibilities: [
-        'Developing user interfaces with Angular',
-        'Implementing responsive designs',
-        'Working with RESTful APIs',
-        'Participating in agile development processes'
+        'Developed a full front-end application using Angular',
+        'Designed user-centered layouts and flows in Figma',
+        'Ensured clean, scalable, and reusable code structure',
+        'Handled all integration with RESTful APIs and deployment pipelines'
+      ],
+      technologies: [
+        'Angular', 'TypeScript', 'RESTful API', 'Git', 'CI/CD', 
+        'HTML', 'CSS', 'SCSS', 'Tailwind', 'Figma'
       ]
     }
   ];
+
   ngOnInit(): void {
     this.scrollToTop();
   }
+
   private scrollToTop(): void {
     window.scrollTo({
       top: 0,

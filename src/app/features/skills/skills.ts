@@ -11,46 +11,48 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })
-export class Skills implements OnInit{
+export class Skills implements OnInit {
   skillCategories = [
     {
-      title: 'Frontend',
-      icon: 'web',
+      title: 'Languages & Frameworks',
+      icon: 'code',
       skills: [
         { name: 'Angular', level: 95 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'JavaScript', level: 88 },
-        { name: 'HTML/CSS', level: 92 },
-        { name: 'RxJS', level: 85 }
+        { name: 'TypeScript', level: 92 },
+        { name: 'JavaScript', level: 90 },
+        { name: 'RxJS', level: 85 },
+        { name: 'NgRx', level: 82 }
       ]
     },
     {
-      title: 'State Management',
-      icon: 'storage',
+      title: 'Styling & UI',
+      icon: 'palette',
       skills: [
-        { name: 'NgRx', level: 85 },
-        { name: 'Angular Signals', level: 90 },
-        { name: 'Redux Pattern', level: 80 }
+        { name: 'SCSS / CSS / HTML', level: 92 },
+        { name: 'Angular Material', level: 90 },
+        { name: 'Tailwind', level: 88 },
+        { name: 'Bootstrap', level: 85 },
+        { name: 'Figma (UI/UX Design)', level: 80 }
       ]
     },
     {
-      title: 'Tools & Technologies',
+      title: 'Tools & Practices',
       icon: 'build',
       skills: [
-        { name: 'Git', level: 88 },
-        { name: 'REST APIs', level: 90 },
-        { name: 'Material Design', level: 92 },
-        { name: 'Responsive Design', level: 95 }
+        { name: 'Git / GitHub', level: 90 },
+        { name: 'CI/CD', level: 85 },
+        { name: 'RESTful API Integration', level: 90 },
+        { name: 'Keycloak (Auth & Theming)', level: 88 }
       ]
     },
     {
-      title: 'Best Practices',
-      icon: 'check_circle',
+      title: 'Work Methodologies',
+      icon: 'group_work',
       skills: [
-        { name: 'Clean Code', level: 90 },
-        { name: 'Testing', level: 80 },
-        { name: 'Performance Optimization', level: 85 },
-        { name: 'Accessibility', level: 82 }
+        { name: 'Agile', level: 90 },
+        { name: 'SCRUM', level: 88 },
+        { name: 'Kanban', level: 85 },
+        { name: 'Team Collaboration', level: 92 }
       ]
     }
   ];
@@ -58,6 +60,7 @@ export class Skills implements OnInit{
   ngOnInit(): void {
     this.scrollToTop();
   }
+
   private scrollToTop(): void {
     window.scrollTo({
       top: 0,
